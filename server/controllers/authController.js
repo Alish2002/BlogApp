@@ -28,6 +28,7 @@ const login=(req, res)=>{
                 const payload={id:user.id, userName: user.userName};
                 const token=jwt.sign(payload, config.secret,{'expiresIn':'1h'})
                 res.status(200).json({'token': 'Bearer'+token});
+                console.log("token is:"+token);
             }
             else{
                 res.status(400).json({message: 'password incorrect'});
